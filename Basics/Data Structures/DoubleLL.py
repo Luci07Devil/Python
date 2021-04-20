@@ -1,15 +1,4 @@
-'''
- * @file   DoublyLinkedList.py
- * @author (original JAVA) William Fiset, william.alexandre.fiset@gmail.com
- *         (conversion to Python) Armin Zare Zadeh, ali.a.zarezadeh@gmail.com
- * @date   20 Jun 2020
- * @version 0.1
- * @brief   A doubly linked list implementation.
-'''
-
 import ctypes 
-
-
 class Node(object):
   ''' 
   Internal node class to represent data
