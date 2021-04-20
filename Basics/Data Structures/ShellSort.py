@@ -13,7 +13,7 @@ def shellSort(input_list):
             input_list[j] = temp
 # Reduce the gap for the next element
         gap = gap//2
-
-list = [19,2,31,45,30,11,121,27]
-shellSort(list)
-print(list)
+if __name__ == '__main__': 
+    list = [19,2,31,45,30,11,121,27]
+    shellSort(list)
+    print(list)
