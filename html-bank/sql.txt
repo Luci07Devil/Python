@@ -1,0 +1,35 @@
+
+create table bank(id int identity(1,1),accountno as '65558'+right('0000'+convert(varchar(2),id),4),name varchar(50)
+,password varchar(50),mobile varchar(50)not null unique,emailid  varchar(50)not null,balance int)
+
+use bank
+select * from bank
+
+drop table bank
+create table bank(id int identity(1,1),accountno as '65558'+right('0000'+convert(varchar(2),id),4),name varchar(50)
+,password varchar(50),mobile varchar(50)not null unique,emailid  varchar(50)not null,balance int)
+
+drop table statment
+create table statment(id int unique not null , accountno varchar(50),currentbalance int,debalance int,creditbalance int,
+trans datetime default getdate(),description varchar(50)
+)
+insert into statment (id)values(0)
+
+select id from statment order by id desc
+
+select * from statment order by id asc
+delete statment where id=2001
+
+
+use bank
+select * from bank
+select * from statment order by id
+alter proc sb @id varchar(50) as
+select row_number() over (order by (id) asc) row,accountno,
+currentbalance,debalance,creditbalance,convert(varchar(50),trans),description
+ from statment where accountno=@id
+
+ALTER proc [dbo].[sb] @id varchar(50) as
+select row_number() over (order by (id) asc) row,accountno,
+currentbalance,debalance,creditbalance,convert(varchar(50),trans),description
+ from statment where accountno=@id	
